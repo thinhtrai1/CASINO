@@ -534,7 +534,6 @@
             android:drawablePadding="3dp"
             android:gravity="center_vertical"
             android:paddingLeft="2dp"
-            android:text="100000"
             android:textColor="#Fff"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -544,7 +543,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:textColor="#f00"
-            android:textSize="25dp"
+            android:textSize="20dp"
             android:textStyle="bold" />
 
         <TextView
