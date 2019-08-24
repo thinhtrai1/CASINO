@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    tools:context=".DuaNguoiActivity">
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#f00"
+        android:background="#fff"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingHorizontal="5dp">
+
+        <com.example.casino.VerticalSeekBar
+            android:id="@+id/sb1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:max="4000"
+            android:progressDrawable="@drawable/progress_custom"
+            android:thumb="@drawable/garen" />
+
+        <com.example.casino.VerticalSeekBar
+            android:id="@+id/sb2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:max="4000"
+            android:progressDrawable="@drawable/progress_custom"
+            android:thumb="@drawable/diana" />
+
+        <com.example.casino.VerticalSeekBar
+            android:id="@+id/sb3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:max="4000"
+            android:progressDrawable="@drawable/progress_custom"
+            android:thumb="@drawable/darius" />
+
+        <com.example.casino.VerticalSeekBar
+            android:id="@+id/sb4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:max="4000"
+            android:progressDrawable="@drawable/progress_custom"
+            android:thumb="@drawable/caitlyn" />
+
+        <com.example.casino.VerticalSeekBar
+            android:id="@+id/sb5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:max="4000"
+            android:progressDrawable="@drawable/progress_custom"
+            android:thumb="@drawable/jarvan" />
+
+        <com.example.casino.VerticalSeekBar
+            android:id="@+id/sb6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:max="4000"
+            android:progressDrawable="@drawable/progress_custom"
+            android:thumb="@drawable/katarina" />
+
+        <com.example.casino.VerticalSeekBar
+            android:id="@+id/sb7"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:max="4000"
+            android:progressDrawable="@drawable/progress_custom"
+            android:thumb="@drawable/draven" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginTop="-1dp"
+        android:background="#f00"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/garen"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="selectClick"
+            android:padding="0dp"
+            android:text="garen"
+            android:textSize="8dp" />
+
+        <Button
+            android:id="@+id/diana"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="selectClick"
+            android:padding="0dp"
+            android:text="diana"
+            android:textSize="8dp" />
+
+        <Button
+            android:id="@+id/darius"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="selectClick"
+            android:padding="0dp"
+            android:text="darius"
+            android:textSize="8dp" />
+
+        <Button
+            android:id="@+id/caitlyn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="selectClick"
+            android:padding="0dp"
+            android:text="caitlyn"
+            android:textSize="8dp" />
+
+        <Button
+            android:id="@+id/jarvan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="selectClick"
+            android:padding="0dp"
+            android:text="jarvan"
+            android:textSize="8dp" />
+
+        <Button
+            android:id="@+id/katarina"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="selectClick"
+            android:padding="0dp"
+            android:text="katarina"
+            android:textSize="8dp" />
+
+        <Button
+            android:id="@+id/draven"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="selectClick"
+            android:padding="0dp"
+            android:text="draven"
+            android:textSize="8dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/play_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="start" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000"
+        android:padding="2dp">
+
+        <TextView
+            android:id="@+id/money"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/coin"
+            android:drawablePadding="3dp"
+            android:paddingLeft="2dp"
+            android:text="100000"
+            android:textColor="#fff"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#fff">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:src="@drawable/bet_icon" />
+
+            <Spinner
+                android:id="@+id/bet_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/name_tv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/flag"
+            android:drawablePadding="3dp"
+            android:paddingLeft="10dp"
+            android:textColor="#999"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

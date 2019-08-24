@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#965F50"
+    android:orientation="vertical"
+    tools:context=".XiDachActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/background_xidach"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/c1"
+                android:layout_width="50dp"
+                android:layout_height="70dp"
+                android:background="@drawable/background_2"
+                android:gravity="center"
+                android:text="♠\n♡"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/c2"
+                android:layout_width="50dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="3dp"
+                android:background="@drawable/background_2"
+                android:gravity="center"
+                android:text="♠\n♡"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/c3"
+                android:layout_width="50dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="3dp"
+                android:background="@drawable/background_2"
+                android:gravity="center"
+                android:text="♠\n♡"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/c4"
+                android:layout_width="50dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="3dp"
+                android:background="@drawable/background_2"
+                android:gravity="center"
+                android:text="♠\n♡"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/c5"
+                android:layout_width="50dp"
+                android:layout_height="70dp"
+                android:layout_marginLeft="3dp"
+                android:background="@drawable/background_2"
+                android:gravity="center"
+                android:text="♠\n♡"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/b1"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/background"
+                    android:gravity="center"
+                    android:text="♠♢"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/b2"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/background"
+                    android:gravity="center"
+                    android:text="♠♢"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/b3"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/background"
+                    android:gravity="center"
+                    android:text="♠♢"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/b4"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/background"
+                    android:gravity="center"
+                    android:text="♠♢"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/b5"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/background"
+                    android:gravity="center"
+                    android:text="♠♢"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="3dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="3"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/money_c"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:drawableTop="@drawable/coin"
+                        android:gravity="center_horizontal"
+                        android:text="100000"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/bet_c"
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:drawableTop="@drawable/bet_icon"
+                        android:drawablePadding="4dp"
+                        android:gravity="center_horizontal"
+                        android:paddingTop="3dp"
+                        android:text="0"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/score_c"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:drawableTop="@drawable/score"
+                        android:gravity="center_horizontal"
+                        android:textColor="#fff"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_weight="5"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/money_b"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/coin"
+                            android:drawablePadding="3dp"
+                            android:gravity="center_vertical"
+                            android:text="100000"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/bet_b"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:drawableLeft="@drawable/bet_icon"
+                            android:drawablePadding="7dp"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="3dp"
+                            android:text="0"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/score_b"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:drawableLeft="@drawable/score"
+                            android:drawablePadding="5dp"
+                            android:gravity="center_vertical"
+                            android:textColor="#fff"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/money_d"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableRight="@drawable/coin"
+                            android:drawablePadding="3dp"
+                            android:gravity="right|center_vertical"
+                            android:text="100000"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/bet_d"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:drawableRight="@drawable/bet_icon"
+                            android:drawablePadding="6dp"
+                            android:gravity="right|center_vertical"
+                            android:paddingRight="3dp"
+                            android:text="0"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/score_d"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="5dp"
+                            android:drawableRight="@drawable/score"
+                            android:drawablePadding="5dp"
+                            android:gravity="center_vertical|right"
+                            android:textColor="#fff"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/d1"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/background"
+                    android:gravity="center"
+                    android:text="♢♣"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/d2"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/background"
+                    android:gravity="center"
+                    android:text="♢♣"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/d3"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/background"
+                    android:gravity="center"
+                    android:text="♢♣"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/d4"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/background"
+                    android:gravity="center"
+                    android:text="♢♣"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/d5"
+                    android:layout_width="70dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/background"
+                    android:gravity="center"
+                    android:text="♢♣"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:id="@+id/a1"
+                    android:layout_width="50dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/background_2"
+                    android:gravity="center"
+                    android:text="♣\n♠"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/a2"
+                    android:layout_width="50dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/background_2"
+                    android:gravity="center"
+                    android:text="♣\n♠"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/a3"
+                    android:layout_width="50dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/background_2"
+                    android:gravity="center"
+                    android:text="♣\n♠"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/a4"
+                    android:layout_width="50dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/background_2"
+                    android:gravity="center"
+                    android:text="♣\n♠"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/a5"
+                    android:layout_width="50dp"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/background_2"
+                    android:gravity="center"
+                    android:text="♣\n♠"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginBottom="-2dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/open_b"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:foreground="@drawable/ripple"
+                android:text="kill A"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/open_c"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:foreground="@drawable/ripple"
+                android:text="kill B"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/open_d"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-50dp"
+                android:layout_weight="1"
+                android:foreground="@drawable/ripple"
+                android:text="kill C"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp">
+
+            <Button
+                android:id="@+id/play_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:foreground="@drawable/ripple"
+                android:text="start"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/bot_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:foreground="@drawable/ripple"
+                android:text="bọt"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/open_all_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:foreground="@drawable/ripple"
+                android:text="open"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000">
+
+        <TextView
+            android:id="@+id/money_a"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/coin"
+            android:drawablePadding="3dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="2dp"
+            android:text="100000"
+            android:textColor="#Fff"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/score_a"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="#f00"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_before_money"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="#fff"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</LinearLayout>

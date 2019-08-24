@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">CASINO</string>
+    <string-array name="bet_array">
+        <item>2000</item>
+        <item>5000</item>
+        <item>10000</item>
+    </string-array>
+    <string-array name="to_array">
+        <item>2000</item>
+        <item>4000</item>
+        <item>6000</item>
+        <item>8000</item>
+        <item>10000</item>
+    </string-array>
+</resources>
