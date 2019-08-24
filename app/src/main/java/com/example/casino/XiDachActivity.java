@@ -445,33 +445,27 @@ public class XiDachActivity extends AppCompatActivity {
             if (diemA > 100 && diemA < 200 && diemB > 100 && diemB < 200) {
                 if (diemA < diemB) {
                     moneyA = moneyA + betB;
-                    tvMoneyA.setText("" + moneyA);
                     moneyB = moneyB - betB;
-                    tvMoneyB.setText("" + moneyB);
                 } else if (diemA > diemB) {
                     moneyA = moneyA - betB;
-                    tvMoneyA.setText("" + moneyA);
                     moneyB = moneyB + betB;
-                    tvMoneyB.setText("" + moneyB);
                 }
             } else if (diemA > diemB) {
                 moneyA = moneyA + betB;
-                tvMoneyA.setText("" + moneyA);
                 moneyB = moneyB - betB;
-                tvMoneyB.setText("" + moneyB);
             } else if (diemA < diemB) {
                 moneyA = moneyA - betB;
-                tvMoneyA.setText("" + moneyA);
                 moneyB = moneyB + betB;
-                tvMoneyB.setText("" + moneyB);
             }
+            tvMoneyA.setText("" + moneyA);
+            tvMoneyB.setText("" + moneyB);
             checkOpenB = true;
+            diemA = z;
             if (checkOpenC == true && checkOpenD == true) {
                 if (beforeMoney > moneyA) tvBeforeMoney.setText("-" + (beforeMoney - moneyA));
                 else tvBeforeMoney.setText("+" + (moneyA - beforeMoney));
+                getSharedPreferences("money", MODE_PRIVATE).edit().putInt("money", moneyA).apply();
             }
-            diemA = z;
-            getSharedPreferences("money", MODE_PRIVATE).edit().putInt("money", moneyA).apply();
         }
     }
 
@@ -496,33 +490,27 @@ public class XiDachActivity extends AppCompatActivity {
             if (diemA > 100 && diemA < 200 && diemC > 100 && diemC < 200) {
                 if (diemA < diemC) {
                     moneyA = moneyA + betC;
-                    tvMoneyA.setText("" + moneyA);
                     moneyC = moneyC - betC;
-                    tvMoneyC.setText("" + moneyC);
                 } else if (diemA > diemC) {
                     moneyA = moneyA - betC;
-                    tvMoneyA.setText("" + moneyA);
                     moneyC = moneyC + betC;
-                    tvMoneyC.setText("" + moneyC);
                 }
             } else if (diemA > diemC) {
                 moneyA = moneyA + betC;
-                tvMoneyA.setText("" + moneyA);
                 moneyC = moneyC - betC;
-                tvMoneyC.setText("" + moneyC);
             } else if (diemA < diemC) {
                 moneyA = moneyA - betC;
-                tvMoneyA.setText("" + moneyA);
                 moneyC = moneyC + betC;
-                tvMoneyC.setText("" + moneyC);
             }
+            tvMoneyA.setText("" + moneyA);
+            tvMoneyC.setText("" + moneyC);
             checkOpenC = true;
+            diemA = z;
             if (checkOpenB == true && checkOpenD == true) {
                 if (beforeMoney > moneyA) tvBeforeMoney.setText("-" + (beforeMoney - moneyA));
                 else tvBeforeMoney.setText("+" + (moneyA - beforeMoney));
+                getSharedPreferences("money", MODE_PRIVATE).edit().putInt("money", moneyA).apply();
             }
-            diemA = z;
-            getSharedPreferences("money", MODE_PRIVATE).edit().putInt("money", moneyA).apply();
         }
     }
 
@@ -547,33 +535,27 @@ public class XiDachActivity extends AppCompatActivity {
             if (diemA > 100 && diemA < 200 && diemD > 100 && diemD < 200) {
                 if (diemA < diemD) {
                     moneyA = moneyA + betD;
-                    tvMoneyA.setText("" + moneyA);
                     moneyD = moneyD - betD;
-                    tvMoneyD.setText("" + moneyD);
                 } else if (diemA > diemD) {
                     moneyA = moneyA - betD;
-                    tvMoneyA.setText("" + moneyA);
                     moneyD = moneyD + betD;
-                    tvMoneyD.setText("" + moneyD);
                 }
             } else if (diemA > diemD) {
                 moneyA = moneyA + betD;
-                tvMoneyA.setText("" + moneyA);
                 moneyD = moneyD - betD;
-                tvMoneyD.setText("" + moneyD);
             } else if (diemA < diemD) {
                 moneyA = moneyA - betD;
-                tvMoneyA.setText("" + moneyA);
                 moneyD = moneyD + betD;
-                tvMoneyD.setText("" + moneyD);
             }
+            tvMoneyA.setText("" + moneyA);
+            tvMoneyD.setText("" + moneyD);
             checkOpenD = true;
+            diemA = z;
             if (checkOpenB == true && checkOpenC == true) {
                 if (beforeMoney > moneyA) tvBeforeMoney.setText("-" + (beforeMoney - moneyA));
                 else tvBeforeMoney.setText("+" + (moneyA - beforeMoney));
+                getSharedPreferences("money", MODE_PRIVATE).edit().putInt("money", moneyA).apply();
             }
-            diemA = z;
-            getSharedPreferences("money", MODE_PRIVATE).edit().putInt("money", moneyA).apply();
         }
     }
 

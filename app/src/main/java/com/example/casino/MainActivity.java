@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    int money;
     TextView tvMoney;
     ImageButton btnXidach, btnBaicao, btnBaucua, btnDuanguoi;
 
@@ -78,8 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                money = getSharedPreferences("money", MODE_PRIVATE).getInt("money", 500000);
-                tvMoney.setText("" + money);
+                tvMoney.setText("" + getSharedPreferences("money", MODE_PRIVATE).getInt("money", 500000));
             }
         };
         countDownTimer.start();
