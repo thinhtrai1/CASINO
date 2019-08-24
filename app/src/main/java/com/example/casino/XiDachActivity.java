@@ -76,7 +76,7 @@ public class XiDachActivity extends AppCompatActivity {
         playBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (checkOpenB == true && checkOpenC == true && checkOpenD == true) {
+                if (checkOpenB && checkOpenC && checkOpenD) {
                     botNum = 0;
                     vector.clear();
                     beforeMoney = moneyA;
@@ -429,7 +429,7 @@ public class XiDachActivity extends AppCompatActivity {
         if (diemA > 21 && diemA < 100) {
             diemA = 0;
         }
-        if (checkOpenB == false) {
+        if (!checkOpenB) {
             b1Tv.setText(b1S);
             b2Tv.setText(b2S);
             b3Tv.setText(b3S);
@@ -461,7 +461,7 @@ public class XiDachActivity extends AppCompatActivity {
             tvMoneyB.setText("" + moneyB);
             checkOpenB = true;
             diemA = z;
-            if (checkOpenC == true && checkOpenD == true) {
+            if (checkOpenC && checkOpenD) {
                 if (beforeMoney > moneyA) tvBeforeMoney.setText("-" + (beforeMoney - moneyA));
                 else tvBeforeMoney.setText("+" + (moneyA - beforeMoney));
                 getSharedPreferences("money", MODE_PRIVATE).edit().putInt("money", moneyA).apply();
@@ -474,7 +474,7 @@ public class XiDachActivity extends AppCompatActivity {
         if (diemA > 21 && diemA < 100) {
             diemA = 0;
         }
-        if (checkOpenC == false) {
+        if (!checkOpenC) {
             c1Tv.setText(c1S);
             c2Tv.setText(c2S);
             c3Tv.setText(c3S);
@@ -506,7 +506,7 @@ public class XiDachActivity extends AppCompatActivity {
             tvMoneyC.setText("" + moneyC);
             checkOpenC = true;
             diemA = z;
-            if (checkOpenB == true && checkOpenD == true) {
+            if (checkOpenB && checkOpenD) {
                 if (beforeMoney > moneyA) tvBeforeMoney.setText("-" + (beforeMoney - moneyA));
                 else tvBeforeMoney.setText("+" + (moneyA - beforeMoney));
                 getSharedPreferences("money", MODE_PRIVATE).edit().putInt("money", moneyA).apply();
@@ -519,7 +519,7 @@ public class XiDachActivity extends AppCompatActivity {
         if (diemA > 21 && diemA < 100) {
             diemA = 0;
         }
-        if (checkOpenD == false) {
+        if (!checkOpenD) {
             d1Tv.setText(d1S);
             d2Tv.setText(d2S);
             d3Tv.setText(d3S);
@@ -551,7 +551,7 @@ public class XiDachActivity extends AppCompatActivity {
             tvMoneyD.setText("" + moneyD);
             checkOpenD = true;
             diemA = z;
-            if (checkOpenB == true && checkOpenC == true) {
+            if (checkOpenB && checkOpenC) {
                 if (beforeMoney > moneyA) tvBeforeMoney.setText("-" + (beforeMoney - moneyA));
                 else tvBeforeMoney.setText("+" + (moneyA - beforeMoney));
                 getSharedPreferences("money", MODE_PRIVATE).edit().putInt("money", moneyA).apply();
@@ -568,7 +568,7 @@ public class XiDachActivity extends AppCompatActivity {
     }
 
     public void onStop() {
-        if (checkOpenB == false || checkOpenC == false || checkOpenD == false) {
+        if (!checkOpenB || !checkOpenC || !checkOpenD) {
             moneyA = moneyA - (betB + betC + betD);
             getSharedPreferences("money", MODE_PRIVATE).edit().putInt("money", moneyA).apply();
         }

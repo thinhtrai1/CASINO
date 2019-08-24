@@ -217,7 +217,7 @@ public class DuaNguoiActivity extends AppCompatActivity {
     }
 
     void done() {
-        if (isRun == true) {
+        if (isRun) {
             if (win == 1) textView.setText("GAREN WIN");
             else if (win == 2) textView.setText("DIANA WIN");
             else if (win == 3) textView.setText("DARIUS WIN");

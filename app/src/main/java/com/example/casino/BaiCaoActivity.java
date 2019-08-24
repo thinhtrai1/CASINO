@@ -164,7 +164,7 @@ public class BaiCaoActivity extends AppCompatActivity {
         btnTo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if ((to_num == 0 || to == 0) && theoA == false && isClick == true) {
+                if ((to_num == 0 || to == 0) && !theoA && isClick) {
                     btnTo.setAnimation(null);
                     btnUp.setAnimation(null);
                     to_num++;
@@ -186,7 +186,7 @@ public class BaiCaoActivity extends AppCompatActivity {
         btnTheo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (to_num > 0 && theoA == false && to_mem > 0 && isClick == true) {
+                if (to_num > 0 && !theoA && to_mem > 0 && isClick) {
                     btnTheo.setAnimation(null);
                     btnUp.setAnimation(null);
                     to_mem++;
@@ -203,7 +203,7 @@ public class BaiCaoActivity extends AppCompatActivity {
         btnUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (theoA == false && to_num < 5 && isClick == true) {
+                if (!theoA && to_num < 5 && isClick) {
                     btnTo.setAnimation(null);
                     btnTheo.setAnimation(null);
                     btnUp.setAnimation(null);
@@ -542,7 +542,7 @@ public class BaiCaoActivity extends AppCompatActivity {
                 chatB.setText(" Theo ");
                 theoB = true;
                 to_mem++;
-            } else if (diemB < 400000 && diemB > 100110 && random.nextInt(5) == 0 && to_mem == 1 && to_num == 4 && theoC == false) {
+            } else if (diemB < 400000 && diemB > 100110 && random.nextInt(5) == 0 && to_mem == 1 && to_num == 4 && !theoC) {
                 moneyB = moneyB - to;
                 tvMoneyB.setText("" + moneyB);
                 chatB.setText(" Theo ");
@@ -612,7 +612,7 @@ public class BaiCaoActivity extends AppCompatActivity {
                 chatC.setText(" Theo ");
                 theoC = true;
                 to_mem++;
-            } else if (diemC < 400000 && diemC > 100110 && random.nextInt(5) == 0 && to_mem < 2 && to_num > 3 && theoD == false) {
+            } else if (diemC < 400000 && diemC > 100110 && random.nextInt(5) == 0 && to_mem < 2 && to_num > 3 && !theoD) {
                 moneyC = moneyC - to;
                 tvMoneyC.setText("" + moneyC);
                 chatC.setText(" Theo ");
@@ -670,7 +670,7 @@ public class BaiCaoActivity extends AppCompatActivity {
                 chatD.setText(" Theo ");
                 theoD = true;
                 to_mem++;
-            } else if (diemD < 400000 && diemD > 100110 && random.nextInt(5) == 0 && to_mem < 2 && to_num > 3 && theoA == false) {
+            } else if (diemD < 400000 && diemD > 100110 && random.nextInt(5) == 0 && to_mem < 2 && to_num > 3 && !theoA) {
                 moneyD = moneyD - to;
                 tvMoneyD.setText("" + moneyD);
                 chatD.setText(" Theo ");
@@ -750,16 +750,16 @@ public class BaiCaoActivity extends AppCompatActivity {
             else tvScoreD.setText("" + diemD / 100000);
         }
 
-        if (theoA == false && theoB == false && theoC == false && theoD == false) {
+        if (!theoA && !theoB && !theoC && !theoD) {
             win = diemA;
             if (diemB > win) win = diemB;
             if (diemC > win) win = diemC;
             if (diemD > win) win = diemD;
         } else {
-            if (theoA == true) win = diemA;
-            if (diemB > win && theoB == true) win = diemB;
-            if (diemC > win && theoC == true) win = diemC;
-            if (diemD > win && theoD == true) win = diemD;
+            if (theoA) win = diemA;
+            if (diemB > win && theoB) win = diemB;
+            if (diemC > win && theoC) win = diemC;
+            if (diemD > win && theoD) win = diemD;
         }
         if (diemA == win) {
             money = money + bet * 4 + to * to_mem;
