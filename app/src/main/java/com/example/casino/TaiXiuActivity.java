@@ -24,8 +24,8 @@ import java.util.Vector;
 public class TaiXiuActivity extends AppCompatActivity {
     int money, beforeMoney, bet, sicbo1, sicbo2, sicbo3, true1, true2, true3, true4, true6, true7, true8, true9, true10;
     int[] s = {R.drawable.dice1, R.drawable.dice2, R.drawable.dice3, R.drawable.dice4, R.drawable.dice5, R.drawable.dice6};
-    ArrayList true5 = new ArrayList();
-    Vector select = new Vector();
+    ArrayList<Integer> true5 = new ArrayList();
+    Vector<Integer> select = new Vector();
     boolean open, viewSpace;
     Random random = new Random();
     CountDownTimer countDownTimer1, countDownTimer2, countDownTimer3;
@@ -134,7 +134,7 @@ public class TaiXiuActivity extends AppCompatActivity {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (open == false) {
+                if (!open) {
                     open = true;
                     beforeMoney = money;
                     tvBeforeMoney.setText("");
@@ -147,8 +147,8 @@ public class TaiXiuActivity extends AppCompatActivity {
         btnStart.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                if (open == false) {
-                    if (viewSpace == false) {
+                if (!open) {
+                    if (!viewSpace) {
                         viewSpace = true;
                         space1.setVisibility(View.VISIBLE);
                         space2.setVisibility(View.VISIBLE);
@@ -294,14 +294,14 @@ public class TaiXiuActivity extends AppCompatActivity {
         }
         if (select.contains(true9)) money = money + bet * 2;
         if (select.contains(true10)) money = money + bet * 2;
-        if (money > beforeMoney) tvBeforeMoney.setText("+" + (money - beforeMoney));
-        else if (money < beforeMoney) tvBeforeMoney.setText("-" + (beforeMoney - money));
+        if (beforeMoney > money) tvBeforeMoney.setText("-" + (beforeMoney - money));
+        else tvBeforeMoney.setText("+" + (money - beforeMoney));
         tvMoney.setText("" + money);
         getSharedPreferences("money", MODE_PRIVATE).edit().putInt("money", money).apply();
     }
 
     public void onClick(View view) {
-        if (open == false) {
+        if (!open) {
             switch (view.getId()) {
                 case R.id.s1:
                     if (!select.contains(1)) {
