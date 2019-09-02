@@ -130,20 +130,6 @@ public class TaiXiuActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
-
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!open) {
-                    open = true;
-                    beforeMoney = money;
-                    tvBeforeMoney.setText("");
-                    true1 = true2 = true3 = true4 = true6 = true7 = true8 = true9 = true10 = 0;
-                    true5.clear();
-                    start();
-                }
-            }
-        });
         btnStart.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
@@ -161,10 +147,23 @@ public class TaiXiuActivity extends AppCompatActivity {
                 return true;
             }
         });
+        btnStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!open) {
+                    open = true;
+                    beforeMoney = money;
+                    tvBeforeMoney.setText("");
+                    true1 = true2 = true3 = true4 = true6 = true7 = true8 = true9 = true10 = 0;
+                    true5.clear();
+                    start();
+                }
+            }
+        });
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                clear();
+                if (!open) clear();
             }
         });
     }

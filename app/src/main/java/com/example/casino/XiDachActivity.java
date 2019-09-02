@@ -22,7 +22,7 @@ public class XiDachActivity extends AppCompatActivity {
     TextView tvBeforeMoney, tvMoneyA, tvScoreA, tvMoneyB, tvScoreB, tvMoneyC, tvScoreC, tvMoneyD, tvScoreD, tvBetB, tvBetC, tvBetD;
     TextView a1Tv, a2Tv, a3Tv, a4Tv, a5Tv, b1Tv, b2Tv, b3Tv, b4Tv, b5Tv, c1Tv, c2Tv, c3Tv, c4Tv, c5Tv, d1Tv, d2Tv, d3Tv, d4Tv, d5Tv;
     Button playBtn, botBtn, openBtn, openB, openC, openD;
-    boolean checkOpenB = true, checkOpenC = true, checkOpenD = true;
+    boolean checkOpenB, checkOpenC, checkOpenD;
     Random random = new Random();
     Vector vector = new Vector();
 
@@ -76,107 +76,101 @@ public class XiDachActivity extends AppCompatActivity {
         playBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (checkOpenB && checkOpenC && checkOpenD) {
-                    botNum = 0;
-                    vector.clear();
-                    beforeMoney = moneyA;
-                    tvBeforeMoney.setText("");
-                    checkOpenB = false;
-                    checkOpenC = false;
-                    checkOpenD = false;
-                    a3Tv.setVisibility(View.INVISIBLE);
-                    a4Tv.setVisibility(View.INVISIBLE);
-                    a5Tv.setVisibility(View.INVISIBLE);
-                    b3Tv.setVisibility(View.INVISIBLE);
-                    b4Tv.setVisibility(View.INVISIBLE);
-                    b5Tv.setVisibility(View.INVISIBLE);
-                    c3Tv.setVisibility(View.INVISIBLE);
-                    c4Tv.setVisibility(View.INVISIBLE);
-                    c5Tv.setVisibility(View.INVISIBLE);
-                    d3Tv.setVisibility(View.INVISIBLE);
-                    d4Tv.setVisibility(View.INVISIBLE);
-                    d5Tv.setVisibility(View.INVISIBLE);
-                    b1Tv.setText("♠♣");
-                    b2Tv.setText("♠♣");
-                    b3Tv.setText("♠♣");
-                    b4Tv.setText("♠♣");
-                    b5Tv.setText("♠♣");
-                    c1Tv.setText("♠\n♡");
-                    c2Tv.setText("♠\n♡");
-                    c3Tv.setText("♠\n♡");
-                    c4Tv.setText("♠\n♡");
-                    c5Tv.setText("♠\n♡");
-                    d1Tv.setText("♣♠");
-                    d2Tv.setText("♣♠");
-                    d3Tv.setText("♣♠");
-                    d4Tv.setText("♣♠");
-                    d5Tv.setText("♣♠");
-                    tvScoreB.setText("?");
-                    tvScoreC.setText("?");
-                    tvScoreD.setText("?");
+                playBtn.setEnabled(false);
+                botBtn.setEnabled(true);
+                botNum = 0;
+                vector.clear();
+                beforeMoney = moneyA;
+                tvBeforeMoney.setText("");
+                checkOpenB = false;
+                checkOpenC = false;
+                checkOpenD = false;
+                a3Tv.setVisibility(View.INVISIBLE);
+                a4Tv.setVisibility(View.INVISIBLE);
+                a5Tv.setVisibility(View.INVISIBLE);
+                b3Tv.setVisibility(View.INVISIBLE);
+                b4Tv.setVisibility(View.INVISIBLE);
+                b5Tv.setVisibility(View.INVISIBLE);
+                c3Tv.setVisibility(View.INVISIBLE);
+                c4Tv.setVisibility(View.INVISIBLE);
+                c5Tv.setVisibility(View.INVISIBLE);
+                d3Tv.setVisibility(View.INVISIBLE);
+                d4Tv.setVisibility(View.INVISIBLE);
+                d5Tv.setVisibility(View.INVISIBLE);
+                b1Tv.setText("♠♣");
+                b2Tv.setText("♠♣");
+                b3Tv.setText("♠♣");
+                b4Tv.setText("♠♣");
+                b5Tv.setText("♠♣");
+                c1Tv.setText("♠\n♡");
+                c2Tv.setText("♠\n♡");
+                c3Tv.setText("♠\n♡");
+                c4Tv.setText("♠\n♡");
+                c5Tv.setText("♠\n♡");
+                d1Tv.setText("♣♠");
+                d2Tv.setText("♣♠");
+                d3Tv.setText("♣♠");
+                d4Tv.setText("♣♠");
+                d5Tv.setText("♣♠");
+                tvScoreB.setText("?");
+                tvScoreC.setText("?");
+                tvScoreD.setText("?");
 
-                    start();
+                start();
 
-                    CountDownTimer countDownTimer = new CountDownTimer(500, 500) {
-                        @Override
-                        public void onTick(long l) {
-                        }
+                CountDownTimer countDownTimer = new CountDownTimer(500, 500) {
+                    @Override
+                    public void onTick(long l) {
+                    }
 
-                        @Override
-                        public void onFinish() {
-                            bot();
-                        }
-                    };
-                    countDownTimer.start();
-                } else Toast.makeText(XiDachActivity.this, "Chưa OPEN", Toast.LENGTH_SHORT).show();
+                    @Override
+                    public void onFinish() {
+                        bot();
+                    }
+                };
+                countDownTimer.start();
             }
         });
 
         botBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (a1!=0){
-                    botNum++;
-                    bot_nha_cai();
-                }
+                botNum++;
+                bot_nha_cai();
             }
         });
 
         openBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (diemA < 16 && diemA > 0)
-                    Toast.makeText(XiDachActivity.this, "Chưa đủ tuổi 16", Toast.LENGTH_SHORT).show();
-                else {
-                    openB();
-                    openC();
-                    openD();
-                }
+                openB();
+                openC();
+                openD();
+                playBtn.setEnabled(true);
+                botBtn.setEnabled(false);
+                openBtn.setEnabled(false);
+                openB.setEnabled(false);
+                openC.setEnabled(false);
+                openD.setEnabled(false);
             }
         });
 
         openB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (diemA < 16 && diemA > 0)
-                    Toast.makeText(XiDachActivity.this, "Chưa đủ tuổi 16", Toast.LENGTH_SHORT).show();
-                else openB();
+                openB();
             }
         });
         openC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (diemA < 16 && diemA > 0)
-                    Toast.makeText(XiDachActivity.this, "Chưa đủ tuổi 16", Toast.LENGTH_SHORT).show();
-                else openC();
+                openC();
             }
         });
         openD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (diemA < 16 && diemA > 0)
-                    Toast.makeText(XiDachActivity.this, "Chưa đủ tuổi 16", Toast.LENGTH_SHORT).show();
-                else openD();
+                openD();
             }
         });
     }
@@ -203,6 +197,12 @@ public class XiDachActivity extends AppCompatActivity {
         } else if (a1 == 11 && a2 == 11) {
             tvScoreA.setText("Xì bàng");
             diemA = 300;
+        }
+        if (diemA > 15) {
+            openBtn.setEnabled(true);
+            openB.setEnabled(true);
+            openC.setEnabled(true);
+            openD.setEnabled(true);
         }
 
         xx();
@@ -422,14 +422,20 @@ public class XiDachActivity extends AppCompatActivity {
         if (diemA > 21 && diemA < 100) {
             tvScoreA.setText("Quắc " + diemA);
         }
+        if (diemA > 15) {
+            openBtn.setEnabled(true);
+            openB.setEnabled(true);
+            openC.setEnabled(true);
+            openD.setEnabled(true);
+        }
     }
 
     void openB() {
-        z = diemA;
-        if (diemA > 21 && diemA < 100) {
-            diemA = 0;
-        }
         if (!checkOpenB) {
+            z = diemA;
+            if (diemA > 21 && diemA < 100) {
+                diemA = 0;
+            }
             b1Tv.setText(b1S);
             b2Tv.setText(b2S);
             b3Tv.setText(b3S);
@@ -460,8 +466,12 @@ public class XiDachActivity extends AppCompatActivity {
             tvMoneyA.setText("" + moneyA);
             tvMoneyB.setText("" + moneyB);
             checkOpenB = true;
+            openB.setEnabled(false);
             diemA = z;
             if (checkOpenC && checkOpenD) {
+                playBtn.setEnabled(true);
+                botBtn.setEnabled(false);
+                openBtn.setEnabled(false);
                 if (beforeMoney > moneyA) tvBeforeMoney.setText("-" + (beforeMoney - moneyA));
                 else tvBeforeMoney.setText("+" + (moneyA - beforeMoney));
                 getSharedPreferences("money", MODE_PRIVATE).edit().putInt("money", moneyA).apply();
@@ -470,11 +480,11 @@ public class XiDachActivity extends AppCompatActivity {
     }
 
     void openC() {
-        z = diemA;
-        if (diemA > 21 && diemA < 100) {
-            diemA = 0;
-        }
         if (!checkOpenC) {
+            z = diemA;
+            if (diemA > 21 && diemA < 100) {
+                diemA = 0;
+            }
             c1Tv.setText(c1S);
             c2Tv.setText(c2S);
             c3Tv.setText(c3S);
@@ -505,8 +515,12 @@ public class XiDachActivity extends AppCompatActivity {
             tvMoneyA.setText("" + moneyA);
             tvMoneyC.setText("" + moneyC);
             checkOpenC = true;
+            openC.setEnabled(false);
             diemA = z;
             if (checkOpenB && checkOpenD) {
+                playBtn.setEnabled(true);
+                openBtn.setEnabled(false);
+                botBtn.setEnabled(false);
                 if (beforeMoney > moneyA) tvBeforeMoney.setText("-" + (beforeMoney - moneyA));
                 else tvBeforeMoney.setText("+" + (moneyA - beforeMoney));
                 getSharedPreferences("money", MODE_PRIVATE).edit().putInt("money", moneyA).apply();
@@ -550,8 +564,12 @@ public class XiDachActivity extends AppCompatActivity {
             tvMoneyA.setText("" + moneyA);
             tvMoneyD.setText("" + moneyD);
             checkOpenD = true;
+            openD.setEnabled(false);
             diemA = z;
             if (checkOpenB && checkOpenC) {
+                playBtn.setEnabled(true);
+                openBtn.setEnabled(false);
+                botBtn.setEnabled(false);
                 if (beforeMoney > moneyA) tvBeforeMoney.setText("-" + (beforeMoney - moneyA));
                 else tvBeforeMoney.setText("+" + (moneyA - beforeMoney));
                 getSharedPreferences("money", MODE_PRIVATE).edit().putInt("money", moneyA).apply();

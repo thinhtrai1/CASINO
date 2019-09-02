@@ -455,6 +455,7 @@
                 android:layout_weight="1"
                 android:foreground="@drawable/ripple"
                 android:text="kill A"
+                android:enabled="false"
                 android:textStyle="bold" />
 
             <Button
@@ -463,6 +464,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
+                android:enabled="false"
                 android:foreground="@drawable/ripple"
                 android:text="kill B"
                 android:textStyle="bold" />
@@ -473,6 +475,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="-50dp"
                 android:layout_weight="1"
+                android:enabled="false"
                 android:foreground="@drawable/ripple"
                 android:text="kill C"
                 android:textStyle="bold" />
@@ -491,7 +494,6 @@
                 android:layout_weight="1"
                 android:foreground="@drawable/ripple"
                 android:text="start"
-                android:textColor="#000"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
@@ -503,7 +505,7 @@
                 android:layout_weight="1"
                 android:foreground="@drawable/ripple"
                 android:text="bọt"
-                android:textColor="#000"
+                android:enabled="false"
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
@@ -514,7 +516,7 @@
                 android:layout_weight="1"
                 android:foreground="@drawable/ripple"
                 android:text="open"
-                android:textColor="#000"
+                android:enabled="false"
                 android:textSize="20dp"
                 android:textStyle="bold" />
         </LinearLayout>
