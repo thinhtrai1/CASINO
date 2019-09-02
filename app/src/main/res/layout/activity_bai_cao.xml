@@ -430,6 +430,7 @@
                     android:id="@+id/up_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:enabled="false"
                     android:foreground="@drawable/ripple"
                     android:text="cancel"
                     android:textStyle="bold" />
@@ -458,6 +459,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:enabled="false"
             android:foreground="@drawable/ripple"
             android:gravity="center"
             android:text="ADD"
@@ -469,6 +471,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:enabled="false"
             android:foreground="@drawable/ripple"
             android:gravity="center"
             android:text="follow"

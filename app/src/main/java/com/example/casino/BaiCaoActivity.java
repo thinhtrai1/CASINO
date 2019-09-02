@@ -22,14 +22,13 @@ public class BaiCaoActivity extends AppCompatActivity {
             tvMoneyBefore, tvMoney, tvScore, tvMoneyB, tvScoreB, tvMoneyC, tvScoreC, tvMoneyD, tvScoreD, chatA, chatB, chatC, chatD;
     Button btnStart, btnTo, btnUp, btnTheo;
     Spinner toSpinner;
-    int x, bet = 5000, to, to_num = 5, to_mem, win, maxA, maxB, maxC, maxD, macA, macB, macC, macD, madA, madB, madC, madD,
+    int x, bet = 5000, to, to_num, to_mem, win, maxA, maxB, maxC, maxD, macA, macB, macC, macD, madA, madB, madC, madD,
             beforeMoney, money, moneyB = 300000, moneyC = 300000, moneyD = 300000, diemA, diemB, diemC, diemD,
             a1, a2, a3, b1, b2, b3, c1, c2, c3, d1, d2, d3;
     String S, s, b1S, b2S, b3S, c1S, c2S, c3S, d1S, d2S, d3S;
     Random random = new Random();
     Vector vector = new Vector();
-    boolean isClick, theoA, theoB, theoC, theoD;
-    Animation anim;
+    boolean theoA, theoB, theoC, theoD;
     CountDownTimer countDownTimer50, countDownTimerToB;
 
     @Override
@@ -71,11 +70,6 @@ public class BaiCaoActivity extends AppCompatActivity {
         money = getSharedPreferences("money", MODE_PRIVATE).getInt("money", 500000);
         tvMoney.setText("" + money);
 
-        anim = new AlphaAnimation(0.0f, 1.0f);
-        anim.setDuration(500);
-        anim.setRepeatMode(Animation.REVERSE);
-        anim.setRepeatCount(Animation.INFINITE);
-
         ArrayAdapter<CharSequence> adapter = ArrayAdapter
                 .createFromResource(this, R.array.to_array, android.R.layout.simple_spinner_dropdown_item);
         toSpinner.setAdapter(adapter);
@@ -83,135 +77,123 @@ public class BaiCaoActivity extends AppCompatActivity {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (to_num == 5) {
-                    tvScore.setBackgroundResource(R.drawable.background_score);
-                    tvScoreB.setBackgroundResource(R.drawable.background_score);
-                    tvScoreC.setBackgroundResource(R.drawable.background_score);
-                    tvScoreD.setBackgroundResource(R.drawable.background_score);
-                    tvScoreB.setText("?");
-                    tvScoreC.setText("?");
-                    tvScoreD.setText("?");
-                    b1Tv.setText("♡♡");
-                    b2Tv.setText("♡♡");
-                    b3Tv.setText("♡♡");
-                    c1Tv.setText("♢\n♢");
-                    c2Tv.setText("♢\n♢");
-                    c3Tv.setText("♢\n♢");
-                    d1Tv.setText("♣♣");
-                    d2Tv.setText("♣♣");
-                    d3Tv.setText("♣♣");
-                    chatA.setText("");
-                    chatB.setText("");
-                    chatC.setText("");
-                    chatD.setText("");
-                    tvMoneyBefore.setText("");
-                    to = win = to_num = to_mem = 0;
-                    isClick = false;
-                    beforeMoney = money;
-                    vector.removeAllElements();
-                    theoA = theoB = theoC = theoD = false;
-                    diemA = diemB = diemC = diemD = madA = madB = madC = madD = 0;
-                    start();
-                    startB();
-                    startC();
-                    startD();
-                    money = money - bet;
-                    moneyB = moneyB - bet;
-                    moneyC = moneyC - bet;
-                    moneyD = moneyD - bet;
-                    tvMoney.setText("" + money);
-                    tvMoneyB.setText("" + moneyB);
-                    tvMoneyC.setText("" + moneyC);
-                    tvMoneyD.setText("" + moneyD);
-                    countDownTimer50 = new CountDownTimer(500, 500) {
-                        @Override
-                        public void onTick(long l) {
+                btnStart.setEnabled(false);
+                tvMoneyBefore.setText("");
+                to = win = to_num = to_mem = 0;
+                beforeMoney = money;
+                vector.removeAllElements();
+                theoA = theoB = theoC = theoD = false;
+                diemA = diemB = diemC = diemD = madA = madB = madC = madD = 0;
+                tvScore.setBackgroundResource(R.drawable.background_score);
+                tvScoreB.setBackgroundResource(R.drawable.background_score);
+                tvScoreC.setBackgroundResource(R.drawable.background_score);
+                tvScoreD.setBackgroundResource(R.drawable.background_score);
+                tvScoreB.setText("?");
+                tvScoreC.setText("?");
+                tvScoreD.setText("?");
+                b1Tv.setText("♡♡");
+                b2Tv.setText("♡♡");
+                b3Tv.setText("♡♡");
+                c1Tv.setText("♢\n♢");
+                c2Tv.setText("♢\n♢");
+                c3Tv.setText("♢\n♢");
+                d1Tv.setText("♣♣");
+                d2Tv.setText("♣♣");
+                d3Tv.setText("♣♣");
+                chatA.setText("");
+                chatB.setText("");
+                chatC.setText("");
+                chatD.setText("");
+                start();
+                startB();
+                startC();
+                startD();
+                money = money - bet;
+                moneyB = moneyB - bet;
+                moneyC = moneyC - bet;
+                moneyD = moneyD - bet;
+                tvMoney.setText("" + money);
+                tvMoneyB.setText("" + moneyB);
+                tvMoneyC.setText("" + moneyC);
+                tvMoneyD.setText("" + moneyD);
+                countDownTimer50 = new CountDownTimer(500, 500) {
+                    @Override
+                    public void onTick(long l) {
 
-                        }
+                    }
 
-                        @Override
-                        public void onFinish() {
-                            int st = random.nextInt(4);
-                            if (st == 0) {
-                                isClick = true;
-                                btnTo.startAnimation(anim);
-                                btnUp.startAnimation(anim);
-                                if (diemA > 900000) toSpinner.setSelection(4);
-                                if (diemA > 800000 && diemA < 900000) toSpinner.setSelection(3);
-                                if (diemA > 700000 && diemA < 800000) toSpinner.setSelection(2);
-                                if (diemA > 600000 && diemA < 700000) toSpinner.setSelection(1);
-                                if (diemA < 600000) toSpinner.setSelection(0);
-                            } else if (st == 1) toB();
-                            else if (st == 2) toC();
-                            else if (st == 3) toD();
-                        }
-                    };
-                    countDownTimer50.start();
-                    countDownTimerToB = new CountDownTimer(500, 500) {
-                        @Override
-                        public void onTick(long l) {
+                    @Override
+                    public void onFinish() {
+                        int st = random.nextInt(4);
+                        if (st == 0) {
+                            btnTo.setEnabled(true);
+                            btnUp.setEnabled(true);
+                            if (diemA > 900000) toSpinner.setSelection(4);
+                            if (diemA > 800000 && diemA < 900000) toSpinner.setSelection(3);
+                            if (diemA > 700000 && diemA < 800000) toSpinner.setSelection(2);
+                            if (diemA > 600000 && diemA < 700000) toSpinner.setSelection(1);
+                            if (diemA < 600000) toSpinner.setSelection(0);
+                        } else if (st == 1) toB();
+                        else if (st == 2) toC();
+                        else if (st == 3) toD();
+                    }
+                };
+                countDownTimer50.start();
+                countDownTimerToB = new CountDownTimer(500, 500) {
+                    @Override
+                    public void onTick(long l) {
 
-                        }
+                    }
 
-                        @Override
-                        public void onFinish() {
-                            toB();
-                        }
-                    };
-                }
+                    @Override
+                    public void onFinish() {
+                        toB();
+                    }
+                };
             }
         });
         btnTo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if ((to_num == 0 || to == 0) && !theoA && isClick) {
-                    btnTo.setAnimation(null);
-                    btnUp.setAnimation(null);
-                    to_num++;
-                    to_mem++;
-                    theoA = true;
-                    isClick = false;
-                    if (toSpinner.getSelectedItemPosition() == 0) to = 2000;
-                    else if (toSpinner.getSelectedItemPosition() == 1) to = 4000;
-                    else if (toSpinner.getSelectedItemPosition() == 2) to = 6000;
-                    else if (toSpinner.getSelectedItemPosition() == 3) to = 8000;
-                    else if (toSpinner.getSelectedItemPosition() == 4) to = 10000;
-                    money = money - to;
-                    tvMoney.setText("" + money);
-                    chatA.setText(" Tố " + to + " ");
-                    countDownTimerToB.start();
-                }
+                btnTo.setEnabled(false);
+                btnUp.setEnabled(false);
+                to_num++;
+                to_mem++;
+                theoA = true;
+                if (toSpinner.getSelectedItemPosition() == 0) to = 2000;
+                else if (toSpinner.getSelectedItemPosition() == 1) to = 4000;
+                else if (toSpinner.getSelectedItemPosition() == 2) to = 6000;
+                else if (toSpinner.getSelectedItemPosition() == 3) to = 8000;
+                else if (toSpinner.getSelectedItemPosition() == 4) to = 10000;
+                money = money - to;
+                tvMoney.setText("" + money);
+                chatA.setText(" Tố " + to + " ");
+                countDownTimerToB.start();
             }
         });
         btnTheo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (to_num > 0 && !theoA && to_mem > 0 && isClick) {
-                    btnTheo.setAnimation(null);
-                    btnUp.setAnimation(null);
-                    to_mem++;
-                    to_num++;
-                    isClick = false;
-                    theoA = true;
-                    money = money - to;
-                    tvMoney.setText("" + money);
-                    chatA.setText(" Theo ");
-                    countDownTimerToB.start();
-                }
+                btnTheo.setEnabled(false);
+                btnUp.setEnabled(false);
+                to_mem++;
+                to_num++;
+                theoA = true;
+                money = money - to;
+                tvMoney.setText("" + money);
+                chatA.setText(" Theo ");
+                countDownTimerToB.start();
             }
         });
         btnUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!theoA && to_num < 5 && isClick) {
-                    btnTo.setAnimation(null);
-                    btnTheo.setAnimation(null);
-                    btnUp.setAnimation(null);
-                    chatA.setText(" Úp ");
-                    to_num++;
-                    isClick = false;
-                    countDownTimerToB.start();
-                }
+                btnTheo.setEnabled(false);
+                btnTo.setEnabled(false);
+                btnUp.setEnabled(false);
+                chatA.setText(" Úp ");
+                to_num++;
+                countDownTimerToB.start();
             }
         });
     }
@@ -494,7 +476,6 @@ public class BaiCaoActivity extends AppCompatActivity {
                 toC();
             }
         };
-        isClick = false;
         to_num++;
         if (to_num == 5) open();
         else if (to == 0) {
@@ -696,18 +677,16 @@ public class BaiCaoActivity extends AppCompatActivity {
             to_num++;
             open();
         } else if (to_num < 4) {
-            isClick = true;
+            btnUp.setEnabled(true);
             if (to_mem == 0) {
                 if (diemA > 900000) toSpinner.setSelection(4);
                 if (diemA > 800000 && diemA < 900000) toSpinner.setSelection(3);
                 if (diemA > 700000 && diemA < 800000) toSpinner.setSelection(2);
                 if (diemA > 600000 && diemA < 700000) toSpinner.setSelection(1);
                 if (diemA < 600000) toSpinner.setSelection(0);
-                btnTo.startAnimation(anim);
-                btnUp.startAnimation(anim);
+                btnTo.setEnabled(true);
             } else {
-                btnTheo.startAnimation(anim);
-                btnUp.startAnimation(anim);
+                btnTheo.setEnabled(true);
             }
         }
     }
@@ -781,6 +760,7 @@ public class BaiCaoActivity extends AppCompatActivity {
         tvMoneyC.setText("" + moneyC);
         tvMoneyD.setText("" + moneyD);
         getSharedPreferences("money", MODE_PRIVATE).edit().putInt("money", money).apply();
+        btnStart.setEnabled(true);
     }
 
     public void onBackPressed() {
