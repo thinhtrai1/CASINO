@@ -26,15 +26,20 @@ public class TaiXiuActivity extends AppCompatActivity {
     int[] s = {R.drawable.dice1, R.drawable.dice2, R.drawable.dice3, R.drawable.dice4, R.drawable.dice5, R.drawable.dice6};
     ArrayList<Integer> true5 = new ArrayList();
     Vector<Integer> select = new Vector();
-    boolean open, viewSpace;
+    boolean open;
     Random random = new Random();
     CountDownTimer countDownTimer1, countDownTimer2, countDownTimer3;
-    ImageView imgSicbo1, imgSicbo2, imgSicbo3, s43, s44, s45, s46, s47, s48;
+    ImageView imgSicbo1, imgSicbo2, imgSicbo3;
     TextView tvMoney, tvBeforeMoney;
-    Button btnStart, btnClear, s14, s15, s16, s17, s18, s19, s20, s21, s22, s23, s24, s25, s26, s27, s49, s50, s51, s52;
+    Button btnStart, btnClear;
     Spinner betSpinner;
-    View s1, s2, s3, s4, s5, s6, s7, s8, s9, s10, s11, s12, s13,
-            s28, s29, s30, s31, s32, s33, s34, s35, s36, s37, s38, s39, s40, s41, s42, space1, space2;
+    Button[] mButtons = new Button[18];
+    View[] mViews = new View[28];
+    ImageView[] mImages = new ImageView[6];
+    int[] mId = {R.id.s1, R.id.s2, R.id.s3, R.id.s4, R.id.s5, R.id.s6, R.id.s7, R.id.s8, R.id.s9, R.id.s10, R.id.s11, R.id.s12, R.id.s13
+            , R.id.s14, R.id.s15, R.id.s16, R.id.s17, R.id.s18, R.id.s19, R.id.s20, R.id.s21, R.id.s22, R.id.s23, R.id.s24, R.id.s25, R.id.s26
+            , R.id.s27, R.id.s28, R.id.s29, R.id.s30, R.id.s31, R.id.s32, R.id.s33, R.id.s34, R.id.s35, R.id.s36, R.id.s37, R.id.s38, R.id.s39
+            , R.id.s40, R.id.s41, R.id.s42, R.id.s43, R.id.s44, R.id.s45, R.id.s46, R.id.s47, R.id.s48, R.id.s49, R.id.s50, R.id.s51, R.id.s52};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,59 +52,6 @@ public class TaiXiuActivity extends AppCompatActivity {
             getWindow().setEnterTransition(explode);
         }
 
-        s1 = findViewById(R.id.s1);
-        s2 = findViewById(R.id.s2);
-        s3 = findViewById(R.id.s3);
-        s4 = findViewById(R.id.s4);
-        s5 = findViewById(R.id.s5);
-        s6 = findViewById(R.id.s6);
-        s7 = findViewById(R.id.s7);
-        s8 = findViewById(R.id.s8);
-        s9 = findViewById(R.id.s9);
-        s10 = findViewById(R.id.s10);
-        s11 = findViewById(R.id.s11);
-        s12 = findViewById(R.id.s12);
-        s13 = findViewById(R.id.s13);
-        s14 = findViewById(R.id.s14);
-        s15 = findViewById(R.id.s15);
-        s16 = findViewById(R.id.s16);
-        s17 = findViewById(R.id.s17);
-        s18 = findViewById(R.id.s18);
-        s19 = findViewById(R.id.s19);
-        s20 = findViewById(R.id.s20);
-        s21 = findViewById(R.id.s21);
-        s22 = findViewById(R.id.s22);
-        s23 = findViewById(R.id.s23);
-        s24 = findViewById(R.id.s24);
-        s25 = findViewById(R.id.s25);
-        s26 = findViewById(R.id.s26);
-        s27 = findViewById(R.id.s27);
-        s28 = findViewById(R.id.s28);
-        s29 = findViewById(R.id.s29);
-        s30 = findViewById(R.id.s30);
-        s31 = findViewById(R.id.s31);
-        s32 = findViewById(R.id.s32);
-        s33 = findViewById(R.id.s33);
-        s34 = findViewById(R.id.s34);
-        s35 = findViewById(R.id.s35);
-        s36 = findViewById(R.id.s36);
-        s37 = findViewById(R.id.s37);
-        s38 = findViewById(R.id.s38);
-        s39 = findViewById(R.id.s39);
-        s40 = findViewById(R.id.s40);
-        s41 = findViewById(R.id.s41);
-        s42 = findViewById(R.id.s42);
-        s43 = findViewById(R.id.s43);
-        s44 = findViewById(R.id.s44);
-        s45 = findViewById(R.id.s45);
-        s46 = findViewById(R.id.s46);
-        s47 = findViewById(R.id.s47);
-        s48 = findViewById(R.id.s48);
-        s49 = findViewById(R.id.s49);
-        s50 = findViewById(R.id.s50);
-        s51 = findViewById(R.id.s51);
-        s52 = findViewById(R.id.s52);
-
         btnStart = findViewById(R.id.btn_start);
         btnClear = findViewById(R.id.btn_clear);
         imgSicbo1 = findViewById(R.id.sicbo1);
@@ -108,8 +60,6 @@ public class TaiXiuActivity extends AppCompatActivity {
         betSpinner = findViewById(R.id.bet_spinner);
         tvMoney = findViewById(R.id.money);
         tvBeforeMoney = findViewById(R.id.tv_before_money);
-        space1 = findViewById(R.id.view_space_1);
-        space2 = findViewById(R.id.view_space_2);
 
         money = getSharedPreferences("money", MODE_PRIVATE).getInt("money", 500000);
         tvMoney.setText("" + money);
@@ -130,23 +80,61 @@ public class TaiXiuActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
-        btnStart.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                if (!open) {
-                    if (!viewSpace) {
-                        viewSpace = true;
-                        space1.setVisibility(View.VISIBLE);
-                        space2.setVisibility(View.VISIBLE);
-                    } else {
-                        viewSpace = false;
-                        space1.setVisibility(View.GONE);
-                        space2.setVisibility(View.GONE);
-                    }
+
+        for (int i = 0; i < 13; i++) {
+            final int temp = i;
+            mViews[i] = findViewById(mId[i]);
+            mViews[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    s1_13(temp);
                 }
-                return true;
-            }
-        });
+            });
+        }
+
+        for (int i = 0; i < 14; i++) {
+            final int temp = i;
+            mButtons[i] = findViewById(mId[i + 13]);
+            mButtons[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    s14_27(temp);
+                }
+            });
+        }
+
+        for (int i = 13; i < 28; i++) {
+            final int temp = i;
+            mViews[i] = findViewById(mId[i + 14]);
+            mViews[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    s28_42(temp);
+                }
+            });
+        }
+
+        for (int i = 0; i < 6; i++) {
+            final int temp = i;
+            mImages[i] = findViewById(mId[i + 42]);
+            mImages[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    s43_48(temp);
+                }
+            });
+        }
+
+        for (int i = 14; i < 18; i++) {
+            final int temp = i;
+            mButtons[i] = findViewById(mId[i + 34]);
+            mButtons[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    s49_52(temp);
+                }
+            });
+        }
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -299,536 +287,68 @@ public class TaiXiuActivity extends AppCompatActivity {
         getSharedPreferences("money", MODE_PRIVATE).edit().putInt("money", money).apply();
     }
 
-    public void onClick(View view) {
-        if (!open) {
-            switch (view.getId()) {
-                case R.id.s1:
-                    if (!select.contains(1)) {
-                        select.add(1);
-                        s1.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(1);
-                        s1.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s2:
-                    if (!select.contains(2)) {
-                        select.add(2);
-                        s2.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(2);
-                        s2.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s3:
-                    if (!select.contains(3)) {
-                        select.add(3);
-                        s3.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(3);
-                        s3.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s4:
-                    if (!select.contains(4)) {
-                        select.add(4);
-                        s4.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(4);
-                        s4.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s5:
-                    if (!select.contains(5)) {
-                        select.add(5);
-                        s5.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(5);
-                        s5.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s6:
-                    if (!select.contains(6)) {
-                        select.add(6);
-                        s6.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(6);
-                        s6.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s7:
-                    if (!select.contains(7)) {
-                        select.add(7);
-                        s7.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(7);
-                        s7.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s8:
-                    if (!select.contains(8)) {
-                        select.add(8);
-                        s8.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(8);
-                        s8.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s9:
-                    if (!select.contains(9)) {
-                        select.add(9);
-                        s9.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(9);
-                        s9.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s10:
-                    if (!select.contains(10)) {
-                        select.add(10);
-                        s10.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(10);
-                        s10.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s11:
-                    if (!select.contains(11)) {
-                        select.add(11);
-                        s11.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(11);
-                        s11.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s12:
-                    if (!select.contains(12)) {
-                        select.add(12);
-                        s12.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(12);
-                        s12.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s13:
-                    if (!select.contains(13)) {
-                        select.add(13);
-                        s13.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(13);
-                        s13.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s14:
-                    if (!select.contains(14)) {
-                        select.add(14);
-                        s14.setBackgroundResource(R.drawable.btn_red);
-                    } else {
-                        select.removeElement(14);
-                        s14.setBackgroundResource(R.drawable.btn_grey);
-                    }
-                    break;
-                case R.id.s15:
-                    if (!select.contains(15)) {
-                        select.add(15);
-                        s15.setBackgroundResource(R.drawable.btn_red);
-                    } else {
-                        select.removeElement(15);
-                        s15.setBackgroundResource(R.drawable.btn_grey);
-                    }
-                    break;
-                case R.id.s16:
-                    if (!select.contains(16)) {
-                        select.add(16);
-                        s16.setBackgroundResource(R.drawable.btn_red);
-                    } else {
-                        select.removeElement(16);
-                        s16.setBackgroundResource(R.drawable.btn_grey);
-                    }
-                    break;
-                case R.id.s17:
-                    if (!select.contains(17)) {
-                        select.add(17);
-                        s17.setBackgroundResource(R.drawable.btn_red);
-                    } else {
-                        select.removeElement(17);
-                        s17.setBackgroundResource(R.drawable.btn_grey);
-                    }
-                    break;
-                case R.id.s18:
-                    if (!select.contains(18)) {
-                        select.add(18);
-                        s18.setBackgroundResource(R.drawable.btn_red);
-                    } else {
-                        select.removeElement(18);
-                        s18.setBackgroundResource(R.drawable.btn_grey);
-                    }
-                    break;
-                case R.id.s19:
-                    if (!select.contains(19)) {
-                        select.add(19);
-                        s19.setBackgroundResource(R.drawable.btn_red);
-                    } else {
-                        select.removeElement(19);
-                        s19.setBackgroundResource(R.drawable.btn_grey);
-                    }
-                    break;
-                case R.id.s20:
-                    if (!select.contains(20)) {
-                        select.add(20);
-                        s20.setBackgroundResource(R.drawable.btn_red);
-                    } else {
-                        select.removeElement(20);
-                        s20.setBackgroundResource(R.drawable.btn_grey);
-                    }
-                    break;
-                case R.id.s21:
-                    if (!select.contains(21)) {
-                        select.add(21);
-                        s21.setBackgroundResource(R.drawable.btn_red);
-                    } else {
-                        select.removeElement(21);
-                        s21.setBackgroundResource(R.drawable.btn_grey);
-                    }
-                    break;
-                case R.id.s22:
-                    if (!select.contains(22)) {
-                        select.add(22);
-                        s22.setBackgroundResource(R.drawable.btn_red);
-                    } else {
-                        select.removeElement(22);
-                        s22.setBackgroundResource(R.drawable.btn_grey);
-                    }
-                    break;
-                case R.id.s23:
-                    if (!select.contains(23)) {
-                        select.add(23);
-                        s23.setBackgroundResource(R.drawable.btn_red);
-                    } else {
-                        select.removeElement(23);
-                        s23.setBackgroundResource(R.drawable.btn_grey);
-                    }
-                    break;
-                case R.id.s24:
-                    if (!select.contains(24)) {
-                        select.add(24);
-                        s24.setBackgroundResource(R.drawable.btn_red);
-                    } else {
-                        select.removeElement(24);
-                        s24.setBackgroundResource(R.drawable.btn_grey);
-                    }
-                    break;
-                case R.id.s25:
-                    if (!select.contains(25)) {
-                        select.add(25);
-                        s25.setBackgroundResource(R.drawable.btn_red);
-                    } else {
-                        select.removeElement(25);
-                        s25.setBackgroundResource(R.drawable.btn_grey);
-                    }
-                    break;
-                case R.id.s26:
-                    if (!select.contains(26)) {
-                        select.add(26);
-                        s26.setBackgroundResource(R.drawable.btn_red);
-                    } else {
-                        select.removeElement(26);
-                        s26.setBackgroundResource(R.drawable.btn_grey);
-                    }
-                    break;
-                case R.id.s27:
-                    if (!select.contains(27)) {
-                        select.add(27);
-                        s27.setBackgroundResource(R.drawable.btn_red);
-                    } else {
-                        select.removeElement(27);
-                        s27.setBackgroundResource(R.drawable.btn_grey);
-                    }
-                    break;
-                case R.id.s28:
-                    if (!select.contains(28)) {
-                        select.add(28);
-                        s28.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(28);
-                        s28.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s29:
-                    if (!select.contains(29)) {
-                        select.add(29);
-                        s29.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(29);
-                        s29.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s30:
-                    if (!select.contains(30)) {
-                        select.add(30);
-                        s30.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(30);
-                        s30.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s31:
-                    if (!select.contains(31)) {
-                        select.add(31);
-                        s31.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(31);
-                        s31.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s32:
-                    if (!select.contains(32)) {
-                        select.add(32);
-                        s32.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(32);
-                        s32.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s33:
-                    if (!select.contains(33)) {
-                        select.add(33);
-                        s33.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(33);
-                        s33.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s34:
-                    if (!select.contains(34)) {
-                        select.add(34);
-                        s34.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(34);
-                        s34.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s35:
-                    if (!select.contains(35)) {
-                        select.add(35);
-                        s35.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(35);
-                        s35.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s36:
-                    if (!select.contains(36)) {
-                        select.add(36);
-                        s36.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(36);
-                        s36.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s37:
-                    if (!select.contains(37)) {
-                        select.add(37);
-                        s37.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(37);
-                        s37.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s38:
-                    if (!select.contains(38)) {
-                        select.add(38);
-                        s38.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(38);
-                        s38.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s39:
-                    if (!select.contains(39)) {
-                        select.add(39);
-                        s39.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(39);
-                        s39.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s40:
-                    if (!select.contains(40)) {
-                        select.add(40);
-                        s40.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(40);
-                        s40.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s41:
-                    if (!select.contains(41)) {
-                        select.add(41);
-                        s41.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(41);
-                        s41.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s42:
-                    if (!select.contains(42)) {
-                        select.add(42);
-                        s42.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(42);
-                        s42.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s43:
-                    if (!select.contains(43)) {
-                        select.add(43);
-                        s43.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(43);
-                        s43.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s44:
-                    if (!select.contains(44)) {
-                        select.add(44);
-                        s44.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(44);
-                        s44.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s45:
-                    if (!select.contains(45)) {
-                        select.add(45);
-                        s45.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(45);
-                        s45.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s46:
-                    if (!select.contains(46)) {
-                        select.add(46);
-                        s46.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(46);
-                        s46.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s47:
-                    if (!select.contains(47)) {
-                        select.add(47);
-                        s47.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(47);
-                        s47.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s48:
-                    if (!select.contains(48)) {
-                        select.add(48);
-                        s48.setBackgroundResource(R.drawable.background_click_2);
-                    } else {
-                        select.removeElement(48);
-                        s48.setBackgroundResource(R.drawable.background_click);
-                    }
-                    break;
-                case R.id.s49:
-                    if (!select.contains(49)) {
-                        select.add(49);
-                        s49.setBackgroundResource(R.drawable.btn_red);
-                    } else {
-                        select.removeElement(49);
-                        s49.setBackgroundResource(R.drawable.btn_grey);
-                    }
-                    break;
-                case R.id.s50:
-                    if (!select.contains(50)) {
-                        select.add(50);
-                        s50.setBackgroundResource(R.drawable.btn_red);
-                    } else {
-                        select.removeElement(50);
-                        s50.setBackgroundResource(R.drawable.btn_grey);
-                    }
-                    break;
-                case R.id.s51:
-                    if (!select.contains(51)) {
-                        select.add(51);
-                        s51.setBackgroundResource(R.drawable.btn_red);
-                    } else {
-                        select.removeElement(51);
-                        s51.setBackgroundResource(R.drawable.btn_grey);
-                    }
-                    break;
-                case R.id.s52:
-                    if (!select.contains(52)) {
-                        select.add(52);
-                        s52.setBackgroundResource(R.drawable.btn_red);
-                    } else {
-                        select.removeElement(52);
-                        s52.setBackgroundResource(R.drawable.btn_grey);
-                    }
-                    break;
-            }
+    void s1_13(int n) {
+        if (!select.contains(n + 1)) {
+            select.add(n + 1);
+            mViews[n].setBackgroundResource(R.drawable.background_click_2);
+        } else {
+            select.removeElement(n + 1);
+            mViews[n].setBackgroundResource(R.drawable.background_click);
+        }
+    }
+
+    void s14_27(int n){
+        if (!select.contains(n + 14)) {
+            select.add(n + 14);
+            mButtons[n].setBackgroundResource(R.drawable.btn_red);
+        } else {
+            select.removeElement(n + 14);
+            mButtons[n].setBackgroundResource(R.drawable.btn_grey);
+        }
+    }
+
+    void s28_42(int n){
+        if (!select.contains(n + 15)) {
+            select.add(n + 15);
+            mViews[n].setBackgroundResource(R.drawable.background_click_2);
+        } else {
+            select.removeElement(n + 15);
+            mViews[n].setBackgroundResource(R.drawable.background_click);
+        }
+    }
+
+    void s43_48(int n) {
+        if (!select.contains(n + 43)) {
+            select.add(n + 43);
+            mImages[n].setBackgroundResource(R.drawable.background_click_2);
+        } else {
+            select.removeElement(n + 43);
+            mImages[n].setBackgroundResource(R.drawable.background_click);
+        }
+    }
+
+    void s49_52(int n) {
+        if (!select.contains(n + 35)) {
+            select.add(n + 35);
+            mButtons[n].setBackgroundResource(R.drawable.btn_red);
+        } else {
+            select.removeElement(n + 35);
+            mButtons[n].setBackgroundResource(R.drawable.btn_grey);
         }
     }
 
     void clear() {
         select.removeAllElements();
         tvBeforeMoney.setText("");
-        s1.setBackgroundResource(R.drawable.background_click);
-        s2.setBackgroundResource(R.drawable.background_click);
-        s3.setBackgroundResource(R.drawable.background_click);
-        s4.setBackgroundResource(R.drawable.background_click);
-        s5.setBackgroundResource(R.drawable.background_click);
-        s6.setBackgroundResource(R.drawable.background_click);
-        s7.setBackgroundResource(R.drawable.background_click);
-        s8.setBackgroundResource(R.drawable.background_click);
-        s9.setBackgroundResource(R.drawable.background_click);
-        s10.setBackgroundResource(R.drawable.background_click);
-        s11.setBackgroundResource(R.drawable.background_click);
-        s12.setBackgroundResource(R.drawable.background_click);
-        s13.setBackgroundResource(R.drawable.background_click);
-        s14.setBackgroundResource(R.drawable.btn_grey);
-        s15.setBackgroundResource(R.drawable.btn_grey);
-        s16.setBackgroundResource(R.drawable.btn_grey);
-        s17.setBackgroundResource(R.drawable.btn_grey);
-        s18.setBackgroundResource(R.drawable.btn_grey);
-        s19.setBackgroundResource(R.drawable.btn_grey);
-        s20.setBackgroundResource(R.drawable.btn_grey);
-        s21.setBackgroundResource(R.drawable.btn_grey);
-        s22.setBackgroundResource(R.drawable.btn_grey);
-        s23.setBackgroundResource(R.drawable.btn_grey);
-        s24.setBackgroundResource(R.drawable.btn_grey);
-        s25.setBackgroundResource(R.drawable.btn_grey);
-        s26.setBackgroundResource(R.drawable.btn_grey);
-        s27.setBackgroundResource(R.drawable.btn_grey);
-        s28.setBackgroundResource(R.drawable.background_click);
-        s29.setBackgroundResource(R.drawable.background_click);
-        s30.setBackgroundResource(R.drawable.background_click);
-        s31.setBackgroundResource(R.drawable.background_click);
-        s32.setBackgroundResource(R.drawable.background_click);
-        s33.setBackgroundResource(R.drawable.background_click);
-        s34.setBackgroundResource(R.drawable.background_click);
-        s35.setBackgroundResource(R.drawable.background_click);
-        s36.setBackgroundResource(R.drawable.background_click);
-        s37.setBackgroundResource(R.drawable.background_click);
-        s38.setBackgroundResource(R.drawable.background_click);
-        s39.setBackgroundResource(R.drawable.background_click);
-        s40.setBackgroundResource(R.drawable.background_click);
-        s41.setBackgroundResource(R.drawable.background_click);
-        s42.setBackgroundResource(R.drawable.background_click);
-        s43.setBackgroundResource(R.drawable.background_click);
-        s44.setBackgroundResource(R.drawable.background_click);
-        s45.setBackgroundResource(R.drawable.background_click);
-        s46.setBackgroundResource(R.drawable.background_click);
-        s47.setBackgroundResource(R.drawable.background_click);
-        s48.setBackgroundResource(R.drawable.background_click);
-        s49.setBackgroundResource(R.drawable.btn_grey);
-        s50.setBackgroundResource(R.drawable.btn_grey);
-        s51.setBackgroundResource(R.drawable.btn_grey);
-        s52.setBackgroundResource(R.drawable.btn_grey);
+        for (int i = 0; i < mViews.length; i++) {
+            mViews[i].setBackgroundResource(R.drawable.background_click);
+        }
+        for (int i = 0; i < mButtons.length; i++) {
+            mButtons[i].setBackgroundResource(R.drawable.btn_grey);
+        }
+        for (int i = 0; i < mImages.length; i++) {
+            mImages[i].setBackgroundResource(R.drawable.background_click);
+        }
     }
 
     public void onBackPressed() {
